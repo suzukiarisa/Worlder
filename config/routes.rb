@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'users/:id/exit' => 'users#exit', as: 'exit'
   resources :users, only: [:edit, :update]
   resources :comments, only: [:create, :destroy]
+  # get 'posts/index/result' => 'posts#index_result', as: 'index_result'
   resources :posts, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :categories, only: [:create, :destroy]
 

@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+   #  def set_search
+	  # @search = Article.ransack(params[:q])
+	  # @search_articles = @search.result.page(params[:page])
+   #  end
+
     def  configure_permitted_parameters
 	    devise_parameter_sanitizer.permit(:sign_up, keys: [:image, :nickname, :gender_id, :age, :Residence_id, :introduction])
 	end
