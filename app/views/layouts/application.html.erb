@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Worlder</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  </head>
+
+  <body>
+    <header>
+      <% if user_signed_in? %>
+        <%= render 'layouts/login_header' %>
+      <% else %>
+        <%= render 'layouts/logout_header' %>
+      <% end %>
+    </header>
+
+    <main>
+      <div class="container">
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+/*Header*/
+
+.brand-logo{
+  height: 100px;
+  width: 170px;
+  margin-right: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.header-menu-li {
+    padding: 20px 0px 0px 40px;
+}
+
+.header-menu-li-name {
+    color: #E66B58;
+}
+
+.menu-img {
+    font-size: 1.15em;
+    text-align: center;
+    height: 20px;
+    font-weight: 100;
+    color: #F58E7D;
+}
+
+.menu-name {
+    font-size: 0.75em;
+    margin-top: 7px;
+    text-align: center;
+    color: #F58E7D;
+}
+
+/*Footer*/
+
+.bg-color-footer {
+    color: #FFF;
+    background-color: #9c9ee2;
+    text-align: center;
+    font-weight: 200;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}

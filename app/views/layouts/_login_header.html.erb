@@ -1,0 +1,25 @@
+<!-- ログイン時 -->
+<ul class="nav" style="display: flex;">
+	<a href="/">
+      <img alt="Worlder icon" class="brand-logo" src="/assets/logo.PNG">
+    </a>
+	<li class="header-menu-li" style="margin-left: 1000px;">
+	  <%= link_to new_post_path do %>
+	    <div class="menu-img">
+	      <i class="fas fa-home"></i>
+	    </div>
+	    <div class="menu-name">新規投稿</div>
+	  <% end %>
+	</li>
+	<li class="header-menu-li">
+	  <%= link_to(destroy_user_session_path, method: :delete) do %>
+	    <div class="menu-img">
+	      <i class="fas fa-sign-out-alt"></i>
+	    </div>
+	    <div class="menu-name">サインアウト</div>
+	  <% end %>
+	</li>
+	<li class="header-menu-li-name">
+	  <%= current_user.nickname %> ｻﾝ
+	</li>
+</ul>
