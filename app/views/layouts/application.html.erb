@@ -20,13 +20,15 @@
     </header>
 
     <main>
-      <div class="container">
-        <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice] %>
-          </div>
-        <% end %>
-        <%= yield %>
+      <div class="bg-color">
+        <div class="container">
+          <% if flash[:notice] %>
+            <div class="flash">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
     </main>
 

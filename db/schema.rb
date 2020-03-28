@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
     t.string "name"
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -42,20 +40,25 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
   end
 
   create_table "post_area_relations", force: :cascade do |t|
+    t.integer "area_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "post_category_relations", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "category_id"
     t.integer "area_id"
-    t.string "image"
+    t.string "image_id"
     t.string "title"
     t.string "body"
     t.datetime "updated_at", null: false
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "image"
+    t.string "image_id"
     t.string "nickname"
     t.integer "gender_id"
     t.string "age"

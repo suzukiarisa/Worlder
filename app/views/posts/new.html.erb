@@ -1,1 +1,52 @@
+<div class="row">
+  <div class="bg-color-form">
+	<div class="post-new-caption">
+	  掲示板の投稿
+	</div>
+	<div class="post-new-subcaption">
+	  ※必要事項を入力して「送信」ボタンを押してください
+	</div>
 
+	<%= form_for @post do |f| %>
+
+	  <div class="post-new-content">
+		<%= f.label :category, 'カテゴリー' %><br>
+	    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |category| %>
+	      <%= category.label do %>
+	        <%= category.check_box %>
+	        <%= category.text %>
+	      <% end %>
+	    <% end %>
+	  </div>
+
+	  <div class="post-new-content">
+		<%= f.label :エリア %><br>
+		<%= f.collection_select :area_id, Area.all, :id, :name, include_blank: '選択して下さい' %>
+	  </div>
+
+	  <div class="post-new-content">
+	    <%= @post.created_at %>
+	  </div>
+
+	  <div class="post-new-content">
+	    <%= f.label :タイトル %>
+	  </div>
+	  <div class="post-new-content">
+		<%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "50*50" %>
+	  </div>
+
+	  <div class="post-new-content">
+	    <%= f.label :内容 %>
+	  </div>
+	  <div class="post-new-content">
+	    <%= f.text_area :body, placeholder: "本文を入力してください", :style=>"width:510px; height:150px;" %>
+	  </div>
+	  <div class="post-new-content">
+		<%= f.attachment_field :image %>
+	  </div>
+	  <div class="post-new-create">
+	    <%= f.submit '投稿', class:'btn btn-outline-info btn-lg', :style=>"width:270px; height:50px;" %>
+	  </div>
+	<% end %>
+  </div>
+</div>

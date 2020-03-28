@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-  	<% @posts.each do |post| %>
+  	<% @post.each do |post| %>
 	  <div class="col-sm-4">
 	  	<div class="col-sm-12">
 		    <%= link_to mypage_path(post.user) do %>
-				<%= attachment_image_tag post, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				<%= attachment_image_tag post, :image, :fill, 130, 130, format: 'jpg', fallback: "logo.PNG" %>
 			<% end %>
 			    <div class="post-index-name">
 			      <%= link_to post.user.nickname, mypage_path(post.user), :style=>"color:#777777;" %>
@@ -15,10 +15,10 @@
 				<div class="post-index-spot">
 			      <%= post.created_at %>
 			    </div>
-			    <span>【カテゴリ】</span>
-              <% @post.categories.each do |category| %>
-                <%= category.name %>
-              <% end %>
+			    <% post.categories.each do |category| %>
+			      <span>【カテゴリ】</span>
+                  <%= category.name %>
+                <% end %>
         </div>
       </div>
     <% end %>

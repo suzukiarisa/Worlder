@@ -16,6 +16,19 @@
  */
  @import "bootstrap";
 
+.bg-color{
+  height: 100%;
+  background-color: #cbefe3;
+  font-family: 'TsukuARdGothic-Regular',sans-serif;
+}
+
+.bg-color-form{
+  background-color: #FFF;
+  border-radius: 25px;
+  margin: 80px auto;
+  padding: 30px;
+}
+
 
 /*Header*/
 
@@ -34,7 +47,9 @@ ul {
 }
 
 .header-menu-li-name {
-    color: #E66B58;
+    padding:33px 120px;
+    color: #F69896;
+    font-family: 'TsukuARdGothic-Regular',sans-serif;
 }
 
 .menu-img {
@@ -42,25 +57,27 @@ ul {
     text-align: center;
     height: 20px;
     font-weight: 100;
-    color: #F58E7D;
+    color: #F69896;
 }
 
 .menu-name {
     font-size: 0.75em;
     margin-top: 7px;
     text-align: center;
-    color: #F58E7D;
+    color: #F69896;
+    font-family: 'TsukuARdGothic-Regular',sans-serif;
 }
 
 /*Footer*/
 
 .bg-color-footer {
-    color: #FFF;
-    background-color: #9c9ee2;
+    color: #F69896;
+    background-color: #FFF;
     text-align: center;
     font-weight: 200;
     padding-bottom: 20px;
     padding-top: 20px;
+    font-family: 'Brush Script MT',sans-serif;
 }
 
 /*sign-up*/

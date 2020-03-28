@@ -3,9 +3,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
     create_table :posts do |t|
 
       t.integer :user_id
-      t.integer :category_id
       t.integer :area_id
-      t.string :image
+      t.string :image_id
       t.string :title
       t.string :body
       t.datetime :updated_at
