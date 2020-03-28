@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   validates :email, presence: true
 
+  belongs_to :residence, optional: true
+  belongs_to :gender, optional: true
   has_many :comments
   has_many :posts
 

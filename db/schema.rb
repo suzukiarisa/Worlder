@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_125359) do
+ActiveRecord::Schema.define(version: 2020_03_28_072404) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.integer "user_id"
@@ -35,6 +41,11 @@ ActiveRecord::Schema.define(version: 2020_03_26_125359) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_area_relations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "post_category_relations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_03_26_125359) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
+    t.integer "area_id"
+    t.string "image"
     t.string "title"
     t.string "body"
     t.datetime "updated_at", null: false
