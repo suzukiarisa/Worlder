@@ -3,20 +3,23 @@ class PostsController < ApplicationController
       @post = Post.new
     end
 
+    def create
+      @post = Post.new(post_params)
+      @post.user_id = current_user.id
+      if @post.save
+        redirect_to root_path, notice: 'Post was successfully created.'
+      else
+        render :new
+      end
+    end
+
     def index
       @post = Post.all
       @posts = Post.page(params[:page]).per(12).reverse_order
     end
 
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to root_path, notice: 'Post was successfully created.'
-    else
-      render :new
+    def show
     end
-  end
 
     def edit
     end
@@ -29,7 +32,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :area_id, :image_id, :created_at, :title, :body, category_ids: [])
+      params.require(:post).permit(:user_id, :area_id, :image, :created_at, :title, :body, category_ids: [])
     end
 end
 

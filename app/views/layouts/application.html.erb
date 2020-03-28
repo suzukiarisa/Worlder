@@ -21,14 +21,12 @@
 
     <main>
       <div class="bg-color">
-        <div class="container">
-          <% if flash[:notice] %>
-            <div class="flash">
-              <%= flash[:notice] %>
-            </div>
-          <% end %>
-          <%= yield %>
-        </div>
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <%= yield %>
       </div>
     </main>
 

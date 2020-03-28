@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :comments, only: [:create, :destroy]
   # get 'posts/index/result' => 'posts#index_result', as: 'index_result'
-  resources :posts, only: [:new, :create, :index, :edit, :update, :destroy]
+  resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   resources :categories, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

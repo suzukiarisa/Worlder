@@ -1,3 +1,13 @@
+<% if @post.errors.any? %>
+	<div class="error_count">
+	  <%= @post.errors.count %> errors prohibited this obj from being saved:
+	    <ul class="error_messages">
+	      <% @post.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+	</div>
+<% end %>
 <div class="row">
   <div class="bg-color-form">
 	<div class="post-new-caption">
@@ -44,8 +54,9 @@
 	  <div class="post-new-content">
 		<%= f.attachment_field :image %>
 	  </div>
+
 	  <div class="post-new-create">
-	    <%= f.submit '投稿', class:'btn btn-outline-info btn-lg', :style=>"width:270px; height:50px;" %>
+	    <%= f.submit '送信', class:'btn btn-outline-info btn-lg', :style=>"width:270px; height:50px;" %>
 	  </div>
 	<% end %>
   </div>

@@ -1,27 +1,36 @@
+<div class="picture"></div>
 <div class="container">
-  <div class="row">
-  	<% @post.each do |post| %>
-	  <div class="col-sm-4">
-	  	<div class="col-sm-12">
-		    <%= link_to mypage_path(post.user) do %>
-				<%= attachment_image_tag post, :image, :fill, 130, 130, format: 'jpg', fallback: "logo.PNG" %>
-			<% end %>
-			    <div class="post-index-name">
-			      <%= link_to post.user.nickname, mypage_path(post.user), :style=>"color:#777777;" %>
-			    </div>
-	            <div class="post-index-title">
-	              <%= post.title %>
+	<div class="underline">
+	  Worlder掲示板
+	</div>
+	<div class="row">
+		<% @post.each do |post| %>
+		  <div class="col-sm-6 col-md-4">
+		    <div class="card img-thumbnail">
+			  <%= link_to mypage_path(post.user) do %>
+		        <%= attachment_image_tag post, :image, format:'jpeg',   size:'340x155', fallback: "no_image.jpg"%>
+			  <% end %>
+			  <div class="card-body px-2 py-3">
+			    <div class="post-index-nickname">
+				  <%= link_to post.user.nickname, mypage_path(post.user), :style=>"color:#333;" %>
 				</div>
-				<div class="post-index-spot">
-			      <%= post.created_at %>
-			    </div>
-			    <% post.categories.each do |category| %>
-			      <span>【カテゴリ】</span>
-                  <%= category.name %>
-                <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+	            <div class="post-index-title">
+	              <%= link_to post.title, post_path(post.user), :style=>"color:#333;" %>
+				</div>
+				<span class="post-index-date">
+				  <%= l(post.created_at, format: :short) %>
+			    </span>
+			    <span class="post-index-content">
+				  <% post.categories.each do |category| %>
+		            <%= category.name %>
+		          <% end %>
+	            </span>
+		      </div>
+		    </div>
+		    <br>
+		  </div>
+		<% end %>
+	</div>
 </div>
+<br>
 <div class="post-index-pagenate"><%= paginate @posts %></div>
