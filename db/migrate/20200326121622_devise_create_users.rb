@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :nickname
       t.integer :gender_id
       t.string :age
-      t.integer :Residence_id
+      t.integer :residence_id
       t.string :introduction
       t.datetime :updated_at
       t.datetime :deleted_at

@@ -1,6 +1,7 @@
 <div class="picture"></div>
 <div class="container">
 	<div class="underline">
+	  <i class="fas fa-bullhorn"></i>
 	  Worlder掲示板
 	</div>
 	<div class="row">
@@ -15,7 +16,7 @@
 				  <%= link_to post.user.nickname, mypage_path(post.user), :style=>"color:#333;" %>
 				</div>
 	            <div class="post-index-title">
-	              <%= link_to post.title, post_path(post.user), :style=>"color:#333;" %>
+	              <%= link_to post.title, post_path(post), :style=>"color:#333;" %>
 				</div>
 				<span class="post-index-date">
 				  <%= l(post.created_at, format: :short) %>

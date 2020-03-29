@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
   belongs_to :residence, optional: true
   belongs_to :gender, optional: true
-  has_many :comments
-  has_many :posts
+  has_many :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

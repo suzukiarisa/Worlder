@@ -14,11 +14,13 @@ class PostsController < ApplicationController
     end
 
     def index
-      @post = Post.all
-      @posts = Post.page(params[:page]).per(12).reverse_order
+      @post = Post.all.reverse_order
+      @posts = Post.page(params[:page]).per(12)
     end
 
     def show
+      @post = Post.find(params[:id])
+      @comment = Comment.new
     end
 
     def edit
@@ -32,7 +34,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :area_id, :image, :created_at, :title, :body, category_ids: [])
+      params.require(:post).permit(:user_id, :image, :created_at, :title, :body, category_ids: [])
     end
 end
 

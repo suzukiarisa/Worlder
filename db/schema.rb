@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_072404) do
-
-  create_table "areas", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2020_03_26_125359) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -27,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.string "title"
+    t.integer "post_id"
     t.string "body"
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
@@ -35,14 +29,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
 
   create_table "genders", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "post_area_relations", force: :cascade do |t|
-    t.integer "area_id", null: false
-    t.integer "post_id", null: false
-    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "area_id"
     t.string "image_id"
     t.string "title"
     t.string "body"
@@ -81,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_072404) do
     t.string "nickname"
     t.integer "gender_id"
     t.string "age"
-    t.integer "Residence_id"
+    t.integer "residence_id"
     t.string "introduction"
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"

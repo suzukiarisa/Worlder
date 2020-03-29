@@ -1,0 +1,81 @@
+<div class="container">
+	<br>
+	<br>
+	<span class="post-show-group">
+	  <% @post.categories.each do |category| %>
+		<%= category.name %>
+	  <% end %>
+	</span>
+	<span class="post-show-title">
+	   <%= @post.title %>
+	</span>
+	<div class="row">
+	  <div class="post-show-box">
+	    <div class="card img-thumbnail">
+	      <%= attachment_image_tag @post, :image, format:'jpeg',   size:'675x400', fallback: "no_image.jpg"%>
+		  <div class="card-body px-2 py-3">
+		  	<span class="post-show-image">
+		      <%= attachment_image_tag @post.user, :image, format:'jpeg',   size:'70x80', fallback: "no_image.jpg",:style=>"border-radius: 10px;" %>
+		  	</span>
+		    <span class="post-show-nickname">
+			  <%= link_to @post.user.nickname, mypage_path(@post.user), :style=>"color:#333;" %>
+			</span>
+			<span class="post-show-content">
+			  <%= @post.user.age %>歳
+			  <%= @post.user.gender.name %>
+			  <%= @post.user.residence %>
+			</span>
+	        <div class="post-show-body">
+	          <%= @post.body %>
+			</div>
+			<div class="comment-count">
+              <a href="#comments">
+              	<font color="#F69896">
+              	  <i class="fa fa-comment"></i>
+              	  <%= @post.comments.count %>
+              	</font>
+              </a>
+            </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    <div class="comment-caption">
+    	投稿へのコメント
+    </div>
+	<div class="comment-bg-color col-sm-7">
+		<br>
+		<ol>
+		  <% @post.comments.each do |comment| %>
+		    <li class="comment">
+		      <div class="comment-nickname">
+		        <a href="/users/:id/mypage" class="link-author">
+		          <font color="#333">
+		        	<%= comment.user.nickname %>
+		          </font>
+		        </a>
+		        <span class="comment-date">
+		          <%= comment.created_at.strftime('%Y/%m/%d') %>
+		        </span>
+		        <div class="comment-body">
+		          <%= comment.body %>
+		        </div>
+		        <br>
+		      </div>
+		    </li>
+		  <% end %>
+		</ol>
+	</div>
+    <div class="post-show-box">
+		<%= form_for [@post, @comment] do |f| %>
+		  <div class="row">
+		    <div class="col-sm-12">
+		      <%= f.text_area :body, rows:'5', class: "form-control",placeholder: "コメントする (公開されます)" %>
+		    </div>
+		  </div>
+		  <div class="comment-create">
+		    <%= f.submit "送信", class: "btn btn-info btn-lg" %>
+		  </div>
+		<% end %>
+    </div>
+</div>

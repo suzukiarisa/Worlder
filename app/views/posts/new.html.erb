@@ -30,11 +30,6 @@
 	  </div>
 
 	  <div class="post-new-content">
-		<%= f.label :エリア %><br>
-		<%= f.collection_select :area_id, Area.all, :id, :name, include_blank: '選択して下さい' %>
-	  </div>
-
-	  <div class="post-new-content">
 	    <%= @post.created_at %>
 	  </div>
 

@@ -50,3 +50,79 @@
 	float:right;
 }
 
+/*Show*/
+
+.post-show-group{
+	margin-left: 20%;
+	padding: 10px;
+	width:100%;
+	background-color: #F69896;
+	font-weight: bold;
+	color:#FFF;
+	border-radius: 10px;
+}
+
+.post-show-title{
+	font-size: 28px;
+	margin-left: 20px;
+}
+
+.post-show-box{
+	width:60%;
+	margin: 40px auto;
+}
+
+.post-show-nickname{
+	font-size: 20px;
+}
+
+.post-show-content{
+	margin-left:62%;
+	padding-right: 5px;
+	font-size: 15px;
+}
+
+.comment-count{
+	padding-right: 10px;
+　　list-style: none;
+   float: right;
+}
+
+.post-show-body{
+	font-size: 15px;
+	padding:20px 35px;
+	line-height: 35px;
+}
+
+.comment-date{
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.comment-body{
+	font-size: 15px;
+	padding:15px 25px;
+	line-height: 25px;
+}
+
+.comment-caption{
+	font-size: 22px;
+	text-align: center;
+	width:50%;
+    margin: 0 auto;
+	border-bottom: dotted 1px #333;
+}
+
+.comment-bg-color{
+	height: 100%;
+	width: 50%;
+	margin: 20px auto;
+	background-color: #FFF;
+	border-radius: 10px;
+}
+
+.comment-create{
+	margin-top: 20px;
+	margin-left: 85%;
+	padding-bottom: 25px;
+}
