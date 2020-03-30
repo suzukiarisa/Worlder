@@ -29,6 +29,11 @@
 				    <%= category.name %>
 			      <% end %>
 				</span>
+				<div class="mypage-edit">
+					<% if current_user == @user %>
+	                  <i class="fa fa-edit"></i> <%= link_to "編集", edit_post_path(post), :style=>"color:#333;" %>
+	                <% end %>
+                </div>
 			  </div>
 			</div>
 	    <% end %>
