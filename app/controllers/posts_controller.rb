@@ -24,12 +24,28 @@ class PostsController < ApplicationController
     end
 
     def edit
+        @post = Post.find(params[:id])
+        @user = @post.user
+      if current_user != @user
+        redirect_to posts_path
+      end
     end
 
     def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+      flash[:notice] = "Post deleted."
+      redirect_to mypage_path(@post.user)
     end
 
     def update
+        @post = Post.find(params[:id])
+      if @post.update(post_params)
+        flash[:notice] = "Post was successfully updated."
+        redirect_to mypage_path(@post.user)
+      else
+        render :edit
+      end
     end
 
   private

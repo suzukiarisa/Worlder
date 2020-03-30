@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="bg-post-edit">
+      <div class="post-edit-caption">
+        投稿の編集
+      </div>
+    	<%= form_for(@post) do |f| %>
+        <div class="user-edit-content">
+          <%= f.label :タイトル %></br>
+          <%= f.text_field :title, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
+        </div>
+        <div class="post-edit-content">
+          <%= f.label :内容 %>
+          <%= f.text_area :body, autocomplete: "body", class:"col-auto form-control form-control-lg w-100", :style=>"height:170px;" %>
+        </div>
+        <div class="post-edit-update">
+          <%= f.submit "更新", class: "btn btn-info btn-lg w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
