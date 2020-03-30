@@ -66,16 +66,31 @@
 		  <% end %>
 		</ol>
 	</div>
-    <div class="post-show-box">
+	<% if user_signed_in?  %>
+	    <div class="post-show-box">
+			<%= form_for [@post, @comment] do |f| %>
+			  <div class="row">
+			    <div class="col-sm-12">
+			      <%= f.text_area :body, rows:'5', class: "form-control",placeholder: "コメントする (公開されます)" %>
+			    </div>
+			  </div>
+			  <div class="comment-create">
+			    <%= f.submit "送信", class: "btn btn-info btn-lg" %>
+			  </div>
+			<% end %>
+	    </div>
+    <% else %>
+      <div class="post-show-box">
 		<%= form_for [@post, @comment] do |f| %>
 		  <div class="row">
 		    <div class="col-sm-12">
 		      <%= f.text_area :body, rows:'5', class: "form-control",placeholder: "コメントする (公開されます)" %>
 		    </div>
 		  </div>
-		  <div class="comment-create">
-		    <%= f.submit "送信", class: "btn btn-info btn-lg" %>
+		  <div class="comment-login">
+		    <%=link_to "コメントするにはログインが必要です", new_user_session_path, class: 'btn btn-info btn-lg', :style=>"color:#FFF;" %>
 		  </div>
 		<% end %>
-    </div>
+	  </div>
+	 <% end %>
 </div>

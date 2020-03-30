@@ -27,7 +27,6 @@
 .picture{
 	height: 500px !important;
 	width: 100%;
-	margin-bottom: 50px;
 	background-image: image-url("image7.jpg");
 	background-position: center 75% !important;
 }
@@ -124,5 +123,11 @@
 .comment-create{
 	margin-top: 20px;
 	margin-left: 85%;
+	padding-bottom: 25px;
+}
+
+.comment-login{
+	margin-top: 20px;
+	margin-left: 22%;
 	padding-bottom: 25px;
 }

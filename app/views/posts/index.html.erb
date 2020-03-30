@@ -1,4 +1,6 @@
 <div class="picture"></div>
+<br>
+<br>
 <div class="container">
 	<div class="underline">
 	  <i class="fas fa-bullhorn"></i>
@@ -19,7 +21,7 @@
 	              <%= link_to post.title, post_path(post), :style=>"color:#333;" %>
 				</div>
 				<span class="post-index-date">
-				  <%= l(post.created_at, format: :short) %>
+				  <%= post.created_at.strftime('%Y/%m/%d') %>
 			    </span>
 			    <span class="post-index-content">
 				  <% post.categories.each do |category| %>

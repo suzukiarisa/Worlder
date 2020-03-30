@@ -1,0 +1,33 @@
+  <div class="col-sm-4">
+    <div class="card img-thumbnail">
+      <%= attachment_image_tag user, :image, format:'jpeg',   size:'340x220', fallback: "no_image.jpg"%>
+	  <div class="card-body px-4 py-3">
+ニックネーム<span class="mypage-nickname">
+		    <%= user.nickname %>
+		  </span>
+		  <br>
+      性別<span class="mypage-content">
+            <%= user.gender.name %>
+		  </span>
+		  <br>
+      年齢<span class="mypage-content">
+            <%= user.age %>
+		  </span>
+		  <br>
+     居住地<span class="mypage-residence">
+            <%= user.residence %>
+		  </span>
+          <div class="mypage-introduction-title">
+            自己紹介
+          </div>
+          <div class="mypage-introduction">
+            <%= user.introduction %>
+		  </div>
+      </div>
+      <% if current_user == @user %>
+		<div class="user-edit">
+		  <i class="fa fa-edit"></i> <%= link_to 'Edit', edit_user_path(@user), :style=>"color:#333;" %>
+		</div>
+      <% end %>
+    </div>
+  </div>

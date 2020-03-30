@@ -1,2 +1,37 @@
-<h1>Users#mypage</h1>
-<p>Find me in app/views/users/mypage.html.erb</p>
+<div class="picture"></div>
+<div class="container">
+  <div class="row">
+	<%= render 'layouts/user_sidemenu', user: @user %>
+	  <div class="col-sm-8">
+		<div class="mypage-post-caption">
+		  投稿一覧
+		</div>
+		<% @posts.each do |post| %>
+			<div class="mypage-post-bg-color">
+		      <span class="mypage-post-user-image">
+		        <%= attachment_image_tag @user, :image, format:'jpeg',   size:'70x70', fallback: "no_image.jpg", :style=>"border-radius: 5px;"%>
+		      </span>
+		      <span class="mypage-post-nickname">
+				<%= @user.nickname %> さん
+			  </span>
+			  <div class="card-body px-4 py-3">
+				<div class="mypage-post-title">
+			      <%= link_to post.title, post_path(post), :style=>"color:#333;" %>
+				</div>
+				<div class="mypage-post-body">
+				  <%= post.body %>
+				</div>
+				<span class="mypage-post-date">
+				  <%= post.created_at.strftime('%Y/%m/%d') %>
+				</span>
+				<span class="mypage-post-category">
+			      <% post.categories.each do |category| %>
+				    <%= category.name %>
+			      <% end %>
+				</span>
+			  </div>
+			</div>
+	    <% end %>
+	  </div>
+  </div>
+</div>
