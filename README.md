@@ -1,24 +1,68 @@
-# README
+<h2>概要</h2>
+旅仲間を探されている方向けの掲示板を作成しました。
+１人では出来ないようなことをより楽しんでいただけたら幸いです！！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h2>機能</h2>
+<br>
+<br>
+<h3>ユーザー機能</h3>
+  以下の項目を入力することでユーザー登録を行うことができます。すべて必須項目です。
+  <br>
+  <ul>
+    <li>サムネイル</li>
+    <li>ニックネーム </li>
+    <li>年齢</li>
+    <li>性別</li>
+    <li>メールアドレス</li>
+    <li>パスワード</li>
+    <li>自己紹介</li>
+  </ul>
+  <br>
+<h3>投稿機能</h3>
+  掲示板を投稿することができます。
+  以下の項目を入力することで投稿を行うことができます。すべて必須項目です。
+  <br>
+  <ul>
+    <li>タイトル</li>
+    <li>内容</li>
+    <li>カテゴリー</li>
+  </ul>
+  <br>
+<h3>コメント機能</h3>
+  投稿に対してコメントができます。
+  以下の項目を入力することでコメントを行うことができます。
+  <br>
+  <ul>
+    <li>内容</li>
+  </ul>
+  <br>
+<h3>カテゴリー機能</h3>
+　投稿に複数カテゴリーをつけられます。
+<br>
+<h3>検索機能</h3>
+投稿とコメントの内容を検索出来ます。
+<br>
+<br>
+<h2>使用ツール</h2>
+<h3>開発環境</h3>
+<br>
+  <ul>
+    <li>git version 2.17.1</li>
+    <li>ruby 2.5.7</li>
+    <li>Rails 5.2.4</li>
+  </ul>
+  <br>
+<h3>gem</h3>
+<br>
+<ul>
+    <li>devise</li>
+    <li>refile、refile-mini_magick</li>
+    <li>kaminari</li>
+    <li>ransack</li>
+    <li>jquery-rails</li>
+    <li>jquery-ui-rails</li>
+    <li>font-awesome-sass</li>
+    <li>cocoon</li>
+    <li>bootstrap</li>
+  </ul>
+<br>
