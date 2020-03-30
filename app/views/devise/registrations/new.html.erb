@@ -4,7 +4,7 @@
 
     <div class="signup-form">
 
-      <div class="signup-image-position">
+      <div class="signup-image">
         <%= f.label :写真 %><br>
         <%= f.attachment_field :image %>
       </div>
@@ -14,22 +14,22 @@
         <%= f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, class:"col-auto form-control form-control-lg" %>
       </div>
 
-      <div class="signup-favorite-artist">
+      <div class="signup-gender">
         <%= f.label :性別 %><br>
         <%= f.collection_select :gender_id, Gender.all, :id, :name, include_blank: '選択して下さい' %>
       </div>
 
-      <div class="signup-nickname">
+      <div class="signup-age">
         <%= f.label :年齢 %><br>
         <%= f.text_field :age, placeholder: "年齢", autofocus: true, class:"col-auto form-control form-control-lg" %>
       </div>
 
-      <div class="signup-prefecture">
+      <div class="signup-residence">
         <%= f.label :居住地 %><br>
         <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '選択して下さい' %>
       </div>
 
-      <div class="signup-prefecture">
+      <div class="signup-introduction">
         <%= f.label :Introduction_自己紹介 %><br>
         <%= f.text_area :introduction, placeholder: "100文字以下で入力", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
       </div>

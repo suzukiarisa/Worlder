@@ -1,2 +1,43 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="bg-user-edit">
+      <div class="user-edit-caption">
+        編集
+      </div>
+    	<%= form_for(@user) do |f| %>
+        <div class="user-edit-content">
+          <%= f.label :写真 %><br>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :Nickname %></br>
+          <%= f.text_field :nickname, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :性別 %><br>
+          <%= f.collection_select :gender_id, Gender.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :年齢 %><br>
+          <%= f.text_field :age, placeholder: "年齢", autofocus: true, class:"col-auto form-control form-control-lg" %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :居住地 %><br>
+          <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :自己紹介 %>
+          <%= f.text_area :introduction, autocomplete: "introduction", class:"col-auto form-control form-control-lg w-100" %>
+        </div>
+        <div class="user-edit-content">
+          <%= f.label :メールアドレス %></br>
+          <%= f.email_field :email, autocomplete: "email", class:"col-auto form-control form-control-lg w-100" %>
+        </div>
+
+        <div class="user-edit-update">
+          <%= f.submit "更新", class: "btn btn-info btn-lg w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

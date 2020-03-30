@@ -5,9 +5,19 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = 'Updated'
+      redirect_to mypage_path(@user)
+    else
+      flash.now[:alert] = 'Update failed'
+      render 'edit'
+    end
   end
 
 private

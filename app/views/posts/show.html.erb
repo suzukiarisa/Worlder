@@ -23,7 +23,7 @@
 			<span class="post-show-content">
 			  <%= @post.user.age %>歳
 			  <%= @post.user.gender.name %>
-			  <%= @post.user.residence %>
+			  <%#= @post.user.residence %>
 			</span>
 	        <div class="post-show-body">
 	          <%= @post.body %>
@@ -49,11 +49,7 @@
 		  <% @post.comments.each do |comment| %>
 		    <li class="comment">
 		      <div class="comment-nickname">
-		        <a href="/users/:id/mypage" class="link-author">
-		          <font color="#333">
-		        	<%= comment.user.nickname %>
-		          </font>
-		        </a>
+		        <%= link_to comment.user.nickname, mypage_path(comment.user), :style=>"color:#333;" %>
 		        <span class="comment-date">
 		          <%= comment.created_at.strftime('%Y/%m/%d') %>
 		        </span>
