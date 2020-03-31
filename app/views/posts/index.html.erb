@@ -2,15 +2,13 @@
 <br>
 <br>
 <div class="container">
-	<div class="search-form">
-		<%= search_form_for @search, url: index_result_path do |f| %>
-	    <%= f.search_field :title_or_body_cont, class:"search_field", placeholder: 'キーワードを入力', :style=>"width:550px; height:45px;" %>
-	      <span class="actions">
-	        <%= f.button :type => "submit", class:'btn btn btn-info btn-lg' do %>
-	    	  <i class="fas fa-search"></i>
-	        <% end %>
-	      </span>
+    <div class="row">
+	  <span class="search-form">
+		<%= search_form_for @q do |f| %>
+	      <%= f.search_field :by_any_texts, :style=>"width:450px; height:50px;" %>
+	      <%= f.submit "検索", :style=>"width:80px; height:50px;" %>
 	    <% end %>
+      </span>
     </div>
     <br>
 	<div class="post-index-caption">
@@ -18,7 +16,7 @@
 	  Worlder掲示板
 	</div>
 	<div class="row">
-		<% @post.each do |post| %>
+		<% @posts.each do |post| %>
 		  <div class="col-sm-6 col-md-4">
 		    <div class="card img-thumbnail">
 			  <%= link_to mypage_path(post.user) do %>

@@ -14,32 +14,16 @@ class PostsController < ApplicationController
     end
 
     def index
-      @post = Post.all.reverse_order
-      @q = Post.ransack(params[:q])
-      @q.build_condition if @q.conditions.empty?
-      @posts = @q.result(distinct: true).page(params[:page]).per(20)
-      @search = Post.ransack(params[:q])
-      @posts = @search.result.page(params[:page]).per(30)
-
-      # @l = Comment.ransack(params[:l])
-      # @l.build_condition if @l.conditions.empty?
-      # @comments = @l.result(distinct: true).page(params[:page]).per(20)
-      # @seek = Comment.ransack(params[:l])
-      # @comments = @seek.result.page(params[:page]).per(30)
-    end
-
-    def index_result
-      @q = Post.ransack(params[:q])
-      @q.build_condition if @q.conditions.empty?
-      @posts = @q.result(distinct: true).page(params[:page]).per(20)
-      @search = Post.ransack(params[:q])
-      @posts = @search.result.page(params[:page]).per(30)
-
-      # @l = Comment.ransack(params[:l])
-      # @l.build_condition if @l.conditions.empty?
-      # @comments = @l.result(distinct: true).page(params[:page]).per(20)
-      # @seek = Comment.ransack(params[:l])
-      # @comments = @seek.result.page(params[:page]).per(30)
+      if params[:q] == nil #読み込み時処理
+        @q = Post.includes(:comments).ransack(params[:q])
+        @posts = @q.result(distinct: true).page(params[:page])
+      else #検索時の処理
+        params[:q][:title_or_body_or_comments_body_cont_any] = params[:q][:title_or_body_or_comments_body_cont_any]
+        #ransack検索
+        @q = Post.includes(:comments).ransack(params[:q])
+        @posts = @q.result(distinct: true).page(params[:page])
+        params[:q][:title_or_body_or_comments_body_cont_any] = params[:q][:title_or_body_or_comments_body_cont_any]
+      end
     end
 
     def show
