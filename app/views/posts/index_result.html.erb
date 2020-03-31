@@ -1,0 +1,52 @@
+<div class="picture"></div>
+<br>
+<div class="container">
+	<div class="search-form">
+		<%= search_form_for @search, url: index_result_path do |f| %>
+	    <%= f.search_field :title_or_body_cont, class:"search_field", placeholder: 'キーワードを入力', :style=>"width:550px; height:45px;" %>
+	      <span class="actions">
+	        <%= f.button :type => "submit", class:'btn btn btn-info btn-lg' do %>
+	    	  <i class="fas fa-search"></i>
+	        <% end %>
+	      </span>
+	    <% end %>
+    </div>
+    <br>
+    <div class="search-form-result">
+	    " <%= params[:q][:title_or_body_cont] %> " の検索結果　<%= @posts.count %>件
+	</div>
+	<div class="post-index-caption">
+	  <i class="fas fa-bullhorn"></i>
+	  Worlder掲示板
+	</div>
+	<div class="row">
+		<% @posts.each do |post| %>
+		  <div class="col-sm-6 col-md-4">
+		    <div class="card img-thumbnail">
+			  <%= link_to mypage_path(post.user) do %>
+		        <%= attachment_image_tag post, :image, format:'jpeg',   size:'340x155', fallback: "no_image.jpg"%>
+			  <% end %>
+			  <div class="card-body px-2 py-3">
+			    <div class="post-index-nickname">
+				  <%= link_to post.user.nickname, mypage_path(post.user), :style=>"color:#333;" %>
+				</div>
+	            <div class="post-index-title">
+	              <%= link_to post.title, post_path(post), :style=>"color:#333;" %>
+				</div>
+				<span class="post-index-date">
+				  <%= post.created_at.strftime('%Y/%m/%d') %>
+			    </span>
+			    <span class="post-index-content">
+				  <% post.categories.each do |category| %>
+		            <%= category.name %>
+		          <% end %>
+	            </span>
+		      </div>
+		    </div>
+		    <br>
+		  </div>
+		<% end %>
+	</div>
+</div>
+<br>
+<div class="post-index-pagenate"><%= paginate @posts %></div>

@@ -1,16 +1,28 @@
-<div class="row">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container">
+  <br>
+  <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <div class="signin-form" >
-      <%= f.label :メールアドレス %><br>
-      <%= f.email_field :email, placeholder: "メールアドレス", :height=>"30px", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %><br>
+      <div class="signin-form" >
+        <div class="signin-caption">
+          ログイン
+        </div>
+        <div class="signin-text">
+          旅行記を投稿したりコメントするには<br>ログインが必要です
+        </div>
+        <%= f.label :メールアドレス %><br>
+        <%= f.email_field :email, placeholder: "メールアドレス", :height=>"30px", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %><br>
 
-      <%= f.label :パスワード %><br>
-      <%= f.password_field :password, placeholder: "6字以上の英数字を入力", :size=>"30", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
+        <%= f.label :パスワード %><br>
+        <%= f.password_field :password, placeholder: "6字以上の英数字を入力", :size=>"30", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
 
-      <div class="signin-create-account">
-        <%= f.submit "ログイン", class:"btn btn-outline-info btn-lg" %>
+        <div class="signin-create-account">
+          <%= f.submit "ログイン", class:"btn btn-outline-info btn-lg" %>
+        </div>
+        <br>
+        <br>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+    <br>
+    <br>
 </div>

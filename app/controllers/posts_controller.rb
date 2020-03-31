@@ -15,7 +15,31 @@ class PostsController < ApplicationController
 
     def index
       @post = Post.all.reverse_order
-      @posts = Post.page(params[:page]).per(12)
+      @q = Post.ransack(params[:q])
+      @q.build_condition if @q.conditions.empty?
+      @posts = @q.result(distinct: true).page(params[:page]).per(20)
+      @search = Post.ransack(params[:q])
+      @posts = @search.result.page(params[:page]).per(30)
+
+      @l = Comment.ransack(params[:l])
+      @l.build_condition if @l.conditions.empty?
+      @comments = @l.result(distinct: true).page(params[:page]).per(20)
+      @seek = Comment.ransack(params[:l])
+      @comments = @seek.result.page(params[:page]).per(30)
+    end
+
+    def index_result
+      @q = Post.ransack(params[:q])
+      @q.build_condition if @q.conditions.empty?
+      @posts = @q.result(distinct: true).page(params[:page]).per(20)
+      @search = Post.ransack(params[:q])
+      @posts = @search.result.page(params[:page]).per(30)
+
+      @l = Comment.ransack(params[:l])
+      @l.build_condition if @l.conditions.empty?
+      @comments = @l.result(distinct: true).page(params[:page]).per(20)
+      @seek = Comment.ransack(params[:l])
+      @comments = @seek.result.page(params[:page]).per(30)
     end
 
     def show

@@ -1,60 +1,74 @@
-<div class="row">
-  <%# autofocus="true"とは?Web画面上で自動的にフォーカスを入れるという設定,trueにすると生成されるinputタグにautofocus="autofocus"が追加される%>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="container">
+  <br>
+  <br>
+    <%# autofocus="true"とは?Web画面上で自動的にフォーカスを入れるという設定,trueにすると生成されるinputタグにautofocus="autofocus"が追加される%>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-    <div class="signup-form">
+      <div class="signup-form">
 
-      <div class="signup-image">
-        <%= f.label :写真 %><br>
-        <%= f.attachment_field :image %>
+        <div class="signup-caption">
+          ログイン
+        </div>
+        <div class="signup-text">
+          旅行記を投稿したりコメントするには<br>ログインが必要です<br>
+          下記のフォームより必要事項をご記入の上<br>
+           " アカウントを作成 "を押してください
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :写真 %><br>
+          <%= f.attachment_field :image %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :ニックネーム %><br>
+          <%= f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, class:"col-auto form-control form-control-lg" %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :性別 %><br>
+          <%= f.collection_select :gender_id, Gender.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :年齢 %><br>
+          <%= f.text_field :age, placeholder: "年齢", autofocus: true, class:"col-auto form-control form-control-lg" %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :居住地 %><br>
+          <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '選択して下さい' %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :自己紹介 %><br>
+          <%= f.text_area :introduction, placeholder: "100文字以下で入力", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :メールアドレス %><br>
+          <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", class:"col-auto form-control form-control-lg" %>
+        </div>
+
+        <div class="signup-content">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上の英数字</em>
+          <% end %><br>
+          <%= f.password_field :password, placeholder: "6文字以上の英数字を入力", autocomplete: "new-password", class:"col-auto form-control form-control-lg " %>
+        </div>
+
+        <div class="signup-password-check">
+          <%= f.label :確認 %><br>
+          <%= f.password_field :password_confirmation, placeholder: "確認", autocomplete: "new-password", class:"col-auto form-control form-control-lg" %>
+        </div>
+        <div class="signup-create-account">
+          <%= f.submit "アカウントを作成", class:"btn btn-outline-info btn-lg" %>
+        </div>
+        <br>
+        <br>
       </div>
-
-      <div class="signup-nickname">
-        <%= f.label :ニックネーム %><br>
-        <%= f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, class:"col-auto form-control form-control-lg" %>
-      </div>
-
-      <div class="signup-gender">
-        <%= f.label :性別 %><br>
-        <%= f.collection_select :gender_id, Gender.all, :id, :name, include_blank: '選択して下さい' %>
-      </div>
-
-      <div class="signup-age">
-        <%= f.label :年齢 %><br>
-        <%= f.text_field :age, placeholder: "年齢", autofocus: true, class:"col-auto form-control form-control-lg" %>
-      </div>
-
-      <div class="signup-residence">
-        <%= f.label :居住地 %><br>
-        <%= f.collection_select :residence_id, Residence.all, :id, :name, include_blank: '選択して下さい' %>
-      </div>
-
-      <div class="signup-introduction">
-        <%= f.label :Introduction_自己紹介 %><br>
-        <%= f.text_area :introduction, placeholder: "100文字以下で入力", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
-      </div>
-
-      <div class="signup-email">
-        <%= f.label :Email_メールアドレス %><br>
-        <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", class:"col-auto form-control form-control-lg" %>
-      </div>
-
-      <div class="signup-password">
-        <%= f.label :Password_パスワード %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br>
-        <%= f.password_field :password, placeholder: "6文字以上の英数字を入力", autocomplete: "new-password", class:"col-auto form-control form-control-lg " %>
-      </div>
-
-      <div class="signup-password-check">
-        <%= f.label :Password_パスワード（Confirm） %><br>
-        <%= f.password_field :password_confirmation, placeholder: "確認", autocomplete: "new-password", class:"col-auto form-control form-control-lg" %>
-      </div>
-    </div>
-
-    <div class="signup-create-account">
-      <%= f.submit "アカウントを作成", class:"btn btn-outline-info btn-lg" %>
-    </div>
-  <% end %>
+    <% end %>
+    <br>
+    <br>
 </div>

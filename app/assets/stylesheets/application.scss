@@ -99,25 +99,70 @@ ul {
 
 /*sign-up*/
 
+.signup-caption{
+  font-size: 20px;
+  padding: 0.4em 0.5em;
+  border-left: solid 5px #F69896;
+  border-bottom: solid 3px #d7d7d7;
+  background: #FFF;
+  color: #F69896;
+  text-align: center;
+  width: 31%;
+}
+
+.signup-text{
+  font-size: 14px;
+  margin: 5px auto;
+  text-align: center;
+  padding:30px;
+}
+
 .signup-form{
-    margin-left: 390px;
+    width:50%;
+    margin: 20px auto;
+    background-color: #FFF;
+    padding:50px;
+    border-radius: 10px;
+}
+
+.signup-content{
+    margin-bottom: 15px;
 }
 
 .signup-create-account {
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 10px;
     float: right;
 }
 
 /*sign-in*/
 
+.signin-caption{
+  font-size: 20px;
+  padding: 0.4em 0.5em;
+  border-left: solid 5px #F69896;
+  border-bottom: solid 3px #d7d7d7;
+  background: #FFF;
+  color: #F69896;
+  text-align: center;
+  width: 50%;
+}
+
+.signin-text{
+  font-size: 14px;
+  margin: 5px auto;
+  text-align: center;
+  padding:30px;
+}
+
 .signin-form{
-    margin-top: 100px;
-    margin-bottom: 200px;
-    margin-left: 410px;
+    width: 40%;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding:70px;
+    border-radius: 10px;
 }
 
 .signin-create-account{
-    margin-top: 20px;
     float:right;
+    padding-top: 15px;
 }
